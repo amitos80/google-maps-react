@@ -66,6 +66,16 @@ export class Map extends React.Component {
       }
     };
   }
+  
+  shouldComponentUpdate (nextProps, nextState, nextContext) {
+    if (nextProps.lat !== this.props.lat) {
+          return true;
+    }
+    if (nextProps.lng !== this.props.lng) {
+      return true;
+    }
+    return false;
+  }
 
   componentDidMount() {
     if (this.props.centerAroundCurrentLocation) {
